@@ -4,8 +4,8 @@
 branco: #f4f3f7
 preto: #0f0a0a
 cinzento: #C0C0C0
-cor-primária:
-cor-secundária:
+cor-primária: #14213d
+cor-secundária: #fca311
 */
 body{
     background-color: #f4f3f7; 
@@ -21,22 +21,22 @@ h1{
     margin-bottom: 40px;
 }
 h2{
-    color:#0f0a0a;
+    color:#14213d;
     
 }
 .btn-ap-primary {
     background-color: #C0C0C0;
-    color: #0f0a0a; 
+    color: #14213d; 
 }
 
 .btn-ap-primary:hover,
 .btn-ap-primary:focus {
-    background-color: #EDC9AF;
+    background-color: #fca311;
 }
 
 .btn-ap-secondary{
     background-color: #C0C0C0;
-    outline: 1px solid #0f0a0a;
+    outline: 1px solid #14213d;
 }
 .btn-ap-secondary:hover,
 .btn-ap-secondary:focus{
@@ -55,3 +55,11 @@ h2{
     background-color:#98971a;
     border-radius: 40%;
 }
+
+.caixa-texto{
+    border: 6px solid #14213d;
+    margin: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
