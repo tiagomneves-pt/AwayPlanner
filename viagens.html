@@ -11,8 +11,8 @@
 <body>
     
     <!--Viagem (singular - esta div fará parte da grelha)-->
-    <div class="container" style="border: 2px solid #d79921;">
-        <div class="row justify-content-between">
+    <div class="container" style="border: 2px solid #C0C0C0;">
+        <div class="row justify-content-between" id="grelha-viagens">
             <div class="div-viagem col-3"> <!--Viagem nº1-->
                 <div class="row justify-content-between">
                     <div class="col-9 align-self-start d-flex">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="div-viagem col-3"> <!--Viagem nº2-->
                 <div class="row justify-content-between">
                     <div class="col-9 align-self-start d-flex">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="div-viagem col-3">
+            <div class="div-viagem col-3"> <!--Viagem nº3-->
                 <div class="row justify-content-between">
                     <div class="col-9 align-self-start d-flex">
                         <h2>Évora</h2>
@@ -80,12 +80,80 @@
                     </div>
                 </div>
             </div>
+            <div class="col-3 mt-5 mb-5 d-flex justify-content-center"> <!--Adicionar viagem-->
+                <button type="button" class="btn btn-ap-secundary m-2" data-bs-toggle="modal" data-bs-target="#novaViagemModal"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/></svg></button>
+            </div>
         </div>
-        
-        
         
     </div>
     
+    <!--Nova viagem-->
+    <!--Modal - TODO:adicionar a flag "required" aos campos necessários-->
+    <div class="modal fade" id="novaViagemModal" tabindex="-1" aria-labelledby="novaViagemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--Cabeçalho-->
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="novaViagemLabel">Nova viagem</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!--Corpo (form)-->
+                <div class="modal-body">
+                    <form>
+                        <div class="row justify-content-between">
+                            <div class="col-8 mb-3">
+                                <input type="text" class="form-control" id="viagem-destino" placeholder="Destino">
+                            </div>
+                            <div class="col-4 mb-3">
+                                <input type="date" class="form-control" id="viagem-data" placeholder="DD/MM/AAAA">
+                            </div>
+                            <div class="input-group col-4 mb-3">
+                                <span class="input-group-text" id="custoIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-euro" viewBox="0 0 16 16"><path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936c0-.11 0-.219.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.617 6.617 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z"/></svg></span>
+                                <input type="text" class="form-control" id="viagem-custo" aria-describedby="custoIcon" placeholder="Custo total da viagem">
+                            </div>
+                            <div class="input-group col-3 mb-3">
+                                <span class="input-group-text" id="passageirosIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-raised-hand" viewBox="0 0 16 16"><path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a.998.998 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207"/><path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg></span>
+                                <input type="text" class="form-control" id="viagem-qtd-passageiros" aria-describedby="passageirosIcon" placeholder="##">
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btn-adicionar">Adicionar</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
     
+</div>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script> //TODO: Submeter os dados na BD
+    document.getElementById('btn-adicionar').onclick = function adicionarViagem(){
+        let destino = document.getElementById('viagem-destino').value;
+        let dataViagem = document.getElementById('viagem-data').value;  
+        let custoTotal = document.getElementById('viagem-custo').value;
+        let numPassageiros = document.getElementById('viagem-qtd-passageiros').value;
+        
+        //console.log(destino, dataViagem, custoTotal, numPassageiros);
+        //Criar uma nova viagem na grelha
+        /*Este script pode ser reaproveitado na criação da grelha a partir da BD
+        * Talvez faça sentido serpará-lo depois da ligação à BD estar feita (o clique no botão passa
+        * a chamar dois scripts: o de adição à BD e o de criação de um novo elemento na grelha)
+        */
+        var novaBoxViagem = document.createElement('div');
+        novaBoxViagem.className = ("div-viagem col-3");
+
+        novaBoxViagem.innerHTML = destino;
+
+        document.getElementById('grelha-viagens').appendChild(novaBoxViagem);
+    }
+    
+</script>
 </body>
 </html>
