@@ -1,0 +1,65 @@
+/*TODO: arranjar um conjunto de cores como deve ser.*/
+/*
+***Códigos hexa porreiros***
+branco: #f4f3f7
+preto: #0f0a0a
+cinzento: #C0C0C0
+cor-primária: #14213d
+cor-secundária: #fca311
+*/
+body{
+    background-color: #f4f3f7; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0f0a0a;
+}
+
+h1{
+    text-align:center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif; /*TODO: arranjar um tipo de letra em condições*/
+    color:#0f0a0a;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+h2{
+    color:#14213d;
+    
+}
+.btn-ap-primary {
+    background-color: #C0C0C0;
+    color: #14213d; 
+}
+
+.btn-ap-primary:hover,
+.btn-ap-primary:focus {
+    background-color: #fca311;
+}
+
+.btn-ap-secondary{
+    background-color: #C0C0C0;
+    outline: 1px solid #14213d;
+}
+.btn-ap-secondary:hover,
+.btn-ap-secondary:focus{
+    background-color: #d79921;
+    border: #d79921;
+}
+
+.div-viagem{
+
+    background-color: #C0C0C0;
+    margin: 15px;
+    outline: 3px solid #0f0a0a;
+}
+
+.num-inscritos{
+    background-color:#98971a;
+    border-radius: 40%;
+}
+
+.caixa-texto{
+    border: 6px solid #14213d;
+    margin: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
