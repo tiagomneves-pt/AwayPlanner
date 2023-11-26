@@ -29,3 +29,15 @@ h2{
 .btn-ap-secundary{
     background-color: #504945;
 }
+
+.div-viagem{
+
+    background-color: wheat;
+    margin: 15px;
+    outline: 5px solid #d79921;
+}
+
+.num-inscritos{
+    background-color:#98971a;
+    border-radius: 40%;
+}
