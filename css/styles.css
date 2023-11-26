@@ -1,40 +1,54 @@
+/*TODO: arranjar um conjunto de cores como deve ser.*/
+/*
+***Códigos hexa porreiros***
+branco: #f4f3f7
+preto: #0f0a0a
+cinzento:
+cor-primária:
+cor-secundária:
+*/
 body{
-    background-color: #32302f; 
+    background-color: #f4f3f7; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #d4be98;
+    color: #0f0a0a;
 }
 
 h1{
     text-align:center;
     font-family:Verdana, Geneva, Tahoma, sans-serif; /*TODO: arranjar um tipo de letra em condições*/
-    color:#eaeceb;
+    color:#0f0a0a;
     margin-top: 0;
     margin-bottom: 40px;
 }
 h2{
-    color:#d8a657;
+    color:#0f0a0a;
+    
 }
 .btn-ap-primary {
-    background-color: #eaeceb;
-    color: #343434; 
-    border-color: #343434;
+    background-color: #C0C0C0;
+    color: #0f0a0a; 
 }
 
 .btn-ap-primary:hover,
 .btn-ap-primary:focus {
-    background-color: #e4bb97;
-    border: #343434;
+    background-color: #EDC9AF;
 }
 
-.btn-ap-secundary{
-    background-color: #504945;
+.btn-ap-secondary{
+    background-color: #C0C0C0;
+    outline: 1px solid #0f0a0a;
+}
+.btn-ap-secondary:hover,
+.btn-ap-secondary:focus{
+    background-color: #d79921;
+    border: #d79921;
 }
 
 .div-viagem{
 
-    background-color: wheat;
+    background-color: #C0C0C0;
     margin: 15px;
-    outline: 5px solid #d79921;
+    outline: 3px solid #0f0a0a;
 }
 
 .num-inscritos{
