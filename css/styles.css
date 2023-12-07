@@ -6,6 +6,8 @@ preto: #0f0a0a
 cinzento: #C0C0C0
 cor-primária: #14213d
 cor-secundária: #fca311
+cor-primária: #14213d
+cor-secundária: #fca311
 */
 body{
     background-color: #f4f3f7; 
@@ -22,20 +24,24 @@ h1{
 }
 h2{
     color:#14213d;
+    color:#14213d;
     
 }
 .btn-ap-primary {
     background-color: #C0C0C0;
+    color: #14213d; 
     color: #14213d; 
 }
 
 .btn-ap-primary:hover,
 .btn-ap-primary:focus {
     background-color: #fca311;
+    background-color: #fca311;
 }
 
 .btn-ap-secondary{
     background-color: #C0C0C0;
+    outline: 1px solid #14213d;
     outline: 1px solid #14213d;
 }
 .btn-ap-secondary:hover,
