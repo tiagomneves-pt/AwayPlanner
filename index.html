@@ -12,21 +12,30 @@
 <body>
     <div class="row g-0">
         <div class="col-lg-6 col-sm-12">
-            <button type="button" class="btn-ap-primary opcoes-index">Última viagem</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Última viagem</button>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <button type="button" class="btn-ap-primary opcoes-index">Viagens</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('viagens.html')">Viagens</button>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <button type="button" class="btn-ap-primary opcoes-index">Documentos</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Documentos</button>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <button type="button" class="btn-ap-primary opcoes-index">Apoio técnico</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Apoio técnico</button>
         </div>
     </div>
     
     <div class="position-absolute top-50 start-50 translate-middle">
         <img src="imagens/rosa-dos-ventos.png" alt="Logótipo da página">
     </div>
+
+
+<script> 
+//Trocar os botões por âncoras desconfigura a página, mesmo quando especifico "role = button"
+//TODO: Resolver incompatibilidades das âncoras com os estilos
+    function redirecionarPagina(pagina){
+        window.location.href = pagina;
+    }
+</script>
 </body>
 </html>

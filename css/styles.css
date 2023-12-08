@@ -16,18 +16,6 @@ body{
     color: #0f0a0a;
 }
 
-h1{ 
-    text-align:center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif; /*TODO: arranjar um tipo de letra em condições*/
-    color:#0f0a0a;
-    margin-top: 0;
-    margin-bottom: 40px;
-}
-h2{
-    color:#14213d;
-    color:#14213d;
-    
-}
 .btn-ap-primary {
     background-color: #f4f3f7;
     border-width: 2px;
