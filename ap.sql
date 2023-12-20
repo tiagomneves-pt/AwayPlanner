@@ -9,6 +9,7 @@ CREATE TABLE `viagens` (
     `partida` varchar(255) NOT NULL DEFAULT 'Coimbra',
     `data_viagem` date NOT NULL,
     `num_passageiros` smallint(5) unsigned NOT NULL DEFAULT 54,
+    `num_inscritos` smallint(5) unsigned NOT NULL DEFAULT 0,
     `custo_total` smallint(5) unsigned NOT NULL,
     `custo_unit` smallint(5) unsigned NOT NULL,
     `estado` varchar(10) NOT NULL,
@@ -25,5 +26,10 @@ CREATE TABLE `passageiro` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
-
+CREATE TABLE `pagamento` (
+    `id_passageiro` SMALLINT NOT NULL ,
+    `id_viagem` SMALLINT NOT NULL ,
+    `pago` BOOLEAN NOT NULL DEFAULT 0,
+    PRIMARY KEY (`id_passageiro`, `id_viagem`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
