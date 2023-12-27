@@ -10,25 +10,6 @@
 
 <body>
 
-<?php
-    $user = 'root';
-    $pass = '';
-
-    try {
-        $dbh = new PDO('mysql:host=localhost;dbname=away_planner;charset=utf8', $user, $pass);
-    } catch (PDOException $e) {
-        // attempt to retry the connection after some timeout for example
-        echo $e;
-    }
-?>
-
-<?php
-    $query_viagens = 'SELECT * FROM viagens WHERE id = :id';
-    $stmt_viagens = $dbh->prepare($query_viagens);
-    $stmt_viagens->bindParam(':id', $viagemId);
-    $stmt_viagens->execute();
-?>
-
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg bf-body-terciary mb-4">
     <div class="container-fluid">
@@ -63,33 +44,50 @@
     </div>
 </nav>
 
-<!--Lista de viagens-->
-<div class="container mt-4">
-    <table class="table">
-        <tr>
-            <th>Viagem</th>
-            <th class="text-center" style="width:6rem;">Destino</th>
-        </tr>
+<div class="container mt-5">
+    <h2>Viagens Planeadas</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Destino</th>
+                <th scope="col">Data</th>
+                <th scope="col">Inscritos</th>
+                <th scope="col">Obs.</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
         <?php
-        while ($viagem = $stmt_viagens->fetchObject()){
-            $viagemId       = $viagem->id;
-            $destino        = $viagem->destino;
-            $partida        = $viagem->partida;
-            $data_viagem    = $viagem->data_viagem;
-            $num_passageiros= $viagem->num_passageiros;
-            $num_inscritos  = $viagem->num_inscritos;
-            $estado         = $viagem->estado;
-        ?>
-        <tr>
-            <td class="text-uppercase"><?= $destino ?></td>
-            <td class="text-center"><?= $data_viagem ?></td>
-        </tr>
-    </table>
+            $servidor   = 'localhost';
+            $user       = 'root'; //FIXME: user e passe a web não funcionam, mesmo com o utilizador criado
+            $pass       = '';
+            $db         = 'away_planner';  
 
-    <?php
-    }
-    ?>
+            $conn = new mysqli($servidor, $user, $pass, $db);
+            if ($conn->connect_error) {
+                die("Falha na conexão: " . $conn->connect_error);
+            }
+
+            $conn->set_charset("utf8");
+
+            // Query para obter os dados da tabela
+            $sql = "SELECT destino, data_viagem FROM viagens";
+            $result = $conn->query($sql);
+
+            // Exibe os dados na tabela
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr><td>".$row["destino"]."</td><td>".$row["data_viagem"]."</td><td>".$row["num_inscritos"]."</td><td>".$row["observacoes"]."</td></tr>";
+                }
+            } else {
+                echo "<tr><td colspan='2'>Nenhum resultado encontrado</td></tr>";
+            }
+
+            $conn->close();
+        ?>
+        </tbody>
+    </table>
 </div>
+
 
 <!-- Modal de Detalhes da Viagem e Participantes -->
 <div class="modal fade" id="detalhesViagemModal" tabindex="-1" aria-labelledby="detalhesViagemLabel" aria-hidden="true">
