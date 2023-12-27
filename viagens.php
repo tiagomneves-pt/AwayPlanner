@@ -6,6 +6,7 @@
     <title>AwayPlanner - Viagens</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tabela.css">
 </head>
 
 <body>
@@ -85,7 +86,7 @@
                 $obs            = $viagem->observacoes;
             ?>
             <tbody>
-                <tr>
+                <tr> <!--TODO: Mudar a cor da linha consoante o estado da viagem-->
                     <td><?= $destino ?></td>
                     <td><?= $data_viagem ?></td>
                     <td><?= $num_inscritos ?>/<?= $num_passageiros ?></td>
@@ -96,7 +97,7 @@
         ?>
             </tbody>
         </table>
-        <button type="button" class="btn"></button>
+        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="#" role="button">+</a> 
 </div>
 
 
