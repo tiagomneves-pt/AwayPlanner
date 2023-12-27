@@ -44,49 +44,59 @@
     </div>
 </nav>
 
-<div class="container mt-5">
-    <h2>Viagens Planeadas</h2>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Destino</th>
-                <th scope="col">Data</th>
-                <th scope="col">Inscritos</th>
-                <th scope="col">Obs.</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-        <?php
-            $servidor   = 'localhost';
-            $user       = 'root'; //FIXME: user e passe a web não funcionam, mesmo com o utilizador criado
-            $pass       = '';
-            $db         = 'away_planner';  
+<?php
+    $user = 'root';
+    $pass = '';
 
-            $conn = new mysqli($servidor, $user, $pass, $db);
-            if ($conn->connect_error) {
-                die("Falha na conexão: " . $conn->connect_error);
-            }
+    try {
+        $dbh = new PDO('mysql:host=localhost;dbname=away_planner;charset=utf8', $user, $pass);
+    } catch (PDOException $e) {
+        // attempt to retry the connection after some timeout for example
+        echo $e;
+    }
+?>
 
-            $conn->set_charset("utf8");
 
-            // Query para obter os dados da tabela
-            $sql = "SELECT destino, data_viagem FROM viagens";
-            $result = $conn->query($sql);
-
-            // Exibe os dados na tabela
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>".$row["destino"]."</td><td>".$row["data_viagem"]."</td><td>".$row["num_inscritos"]."</td><td>".$row["observacoes"]."</td></tr>";
-                }
-            } else {
-                echo "<tr><td colspan='2'>Nenhum resultado encontrado</td></tr>";
-            }
-
-            $conn->close();
+<div class="container mt-4">
+    <h2>Viagens planeadas</h2>  
+    <?php
+        // Query para obter os dados da tabela
+        $sql = "SELECT id_viagem, destino, data_viagem, num_passageiros, num_inscritos, estado, observacoes FROM viagens
+        ORDER BY data_viagem ASC, id_viagem";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
         ?>
-        </tbody>
-    </table>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Inscritos</th>
+                    <th scope="col">Observações</th>                        
+                </tr>
+            </thead>
+            <?php
+            while($viagem = $stmt->fetchObject()){
+                $destino        = $viagem->destino;
+                $data_viagem    = $viagem->data_viagem;
+                $num_inscritos  = $viagem->num_inscritos;
+                $obs            = $viagem->observacoes;
+            ?>
+            <tbody>
+                <tr>
+                    <td><?= $destino ?></td>
+                    <td><?= $data_viagem ?></td>
+                    <td><?= $num_inscritos ?></td>
+                    <td><?= $obs ?></td>
+                </tr>
+            </tbody>
+            <?php
+            }
+            ?>
+        </table>
 </div>
+
 
 
 <!-- Modal de Detalhes da Viagem e Participantes -->
