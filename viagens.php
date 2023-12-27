@@ -81,20 +81,22 @@
                 $destino        = $viagem->destino;
                 $data_viagem    = $viagem->data_viagem;
                 $num_inscritos  = $viagem->num_inscritos;
+                $num_passageiros= $viagem->num_passageiros;
                 $obs            = $viagem->observacoes;
             ?>
             <tbody>
                 <tr>
                     <td><?= $destino ?></td>
                     <td><?= $data_viagem ?></td>
-                    <td><?= $num_inscritos ?></td>
+                    <td><?= $num_inscritos ?>/<?= $num_passageiros ?></td>
                     <td><?= $obs ?></td>
                 </tr>
+        <?php
+        }
+        ?>
             </tbody>
-            <?php
-            }
-            ?>
         </table>
+        <button type="button" class="btn"></button>
 </div>
 
 
