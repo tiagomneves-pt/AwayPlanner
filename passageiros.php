@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,28 +44,19 @@
     </div>
 </nav>
 
+<?php require('includes/database.php'); ?>
 <?php
 $id_viagem = $_GET['id'];
-require('includes/database.php');
-$sql = 'SELECT id_passageiro, id_viagem FROM pagamento WHERE id_viagem = :id';
-$stmt = $dbh->prepare($sql);
-$stmt->bindParam(':id', id_viagem);
+$sql_pagamento = 'SELECT * FROM pagamento p INNER JOIN passageiro g ON g.id = p.id_passageiro WHERE p.id_viagem = :id';
+$stmt = $dbh->prepare($sql_pagamento);
+$stmt->bindValue(':id', $id_viagem);
 $stmt->execute();
-
-$viagem = $stmt->fetchObject();
-print($viagem);
 ?>
 
 <div class="container mt-4">
     <h2>Inscrições</h2>
-    <h3>Viagem a XXXX</h3>  
-    <?php
-        // Query para obter os dados da tabela
-        $sql = "SELECT id, nome, contacto FROM passageiro
-        ORDER BY nome ASC";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        ?>
+    <h3>Viagem a </h3>  
+
 
         <table class="table table-hover">
             <thead>
@@ -79,12 +70,13 @@ print($viagem);
             while($passageiro = $stmt->fetchObject()){
                 $nome        = $passageiro->nome;
                 $contacto    = $passageiro->contacto;
+                $pago        = $passageiro->pago;
             ?>
             <tbody>
                 <tr>
                     <td><?= $nome ?></td>
                     <td><?= $contacto ?></td>
-                    <td><input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></td>                    
+                    <td><input <?php if($pago == 1) echo 'checked';?>  class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></td>                    
                 </tr>
         <?php
         }
