@@ -4,10 +4,9 @@
 branco: #f4f3f7
 preto: #0f0a0a
 cinzento: #C0C0C0
-cor-primária: #14213d
-cor-secundária: #fca311
-cor-primária: #14213d
-cor-secundária: #fca311
+cor-primária: #D0BAA9 (castanho)
+cor-secundária: #56445D (violeta)
+
 */
 /*FIXME: Modificar os estilos de modo a não modificar as classes do bootstrap*/
 body{
@@ -30,41 +29,7 @@ body{
 .btn-ap-primary:focus,
 .opcoes-index:hover,
 .opcoes-index:focus{
-    background-color: #d0baa9;
-}
-
-.btn-ap-secondary{
-    background-color: #C0C0C0;
-    outline: 1px solid #14213d;
-}
-.btn-ap-secondary:hover,
-.btn-ap-secondary:focus{
-    background-color: #d79921;
-    border: #d79921;
-}
-
-.div-viagem{
-
-    background-color: #C0C0C0;
-    margin: 15px;
-    outline: 3px solid #0f0a0a;
-}
-
-.num-inscritos{
-    background-color:#98971a;
-    border-radius: 40%;
-}
-
-.caixa-texto{
-    border: 6px solid #14213d;
-    margin: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.lista-scroll {
-    max-height: 300px;
-    overflow-y: auto;
+    background-color: #D0BAA9;
 }
 
 .participante-info {
@@ -75,16 +40,6 @@ body{
     border-bottom: 1px solid #ccc;
     padding-bottom: 16px;
 }
-
-.attribute-label {
-    font-weight: bold;
-    flex-basis: 30%;
-}
-
-.attribute-value {
-    flex-basis: 65%;
-}
-
 .opcoes-index{
     height: 25vh;
     width: 100%;
@@ -98,4 +53,16 @@ body{
     .opcoes-index {
         height: 50vh;
     }
+}
+
+.nav-link{
+    color: #56445D;
+    font-family: 'CooperHewittSemiBold';
+    font-weight: normal;
+    font-style: normal;
+}
+.nav-link:hover,
+.nav-link:focus{
+    color: #D0BAA9;
+    transition: 0.5s;
 }
