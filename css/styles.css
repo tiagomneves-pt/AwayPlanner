@@ -83,9 +83,16 @@ body{
 }
 
 .opcoes-index{
-    height: 50vh;
+    height: 25vh;
     width: 100%;
     background-color: #f4f3f7;
     border-width: 1px;
     font-size: 40px;
+}
+
+/*768px é equivalente ao tamanho médio do Bootstrap*/
+@media (min-width: 768px){
+    .opcoes-index {
+        height: 50vh;
+    }
 }
