@@ -45,17 +45,16 @@
 </nav>
 
 <?php
-    $user = 'root';
-    $pass = '';
+$id_viagem = $_GET['id'];
+require('includes/database.php');
+$sql = 'SELECT id_passageiro, id_viagem FROM pagamento WHERE id_viagem = :id';
+$stmt = $dbh->prepare($sql);
+$stmt->bindParam(':id', id_viagem);
+$stmt->execute();
 
-    try {
-        $dbh = new PDO('mysql:host=localhost;dbname=away_planner;charset=utf8', $user, $pass);
-    } catch (PDOException $e) {
-        // attempt to retry the connection after some timeout for example
-        echo $e;
-    }
+$viagem = $stmt->fetchObject();
+print($viagem);
 ?>
-
 
 <div class="container mt-4">
     <h2>Inscrições</h2>
