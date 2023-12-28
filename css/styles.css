@@ -21,13 +21,16 @@ body{
     border-width: 2px;
     font-size: 40px;
     transition: background-color 0.3s ease;
+    font-family: 'CooperHewittSemibold';
+    font-weight: normal;
+    font-style: normal;
 }
 
 .btn-ap-primary:hover,
 .btn-ap-primary:focus,
 .opcoes-index:hover,
 .opcoes-index:focus{
-    background-color: #fca311;
+    background-color: #d0baa9;
 }
 
 .btn-ap-secondary{
