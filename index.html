@@ -12,7 +12,7 @@
 <body>
     <div class="row g-0">
         <div class="col-12 col-md-6">
-            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Próxima viagem</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('proximaViagem.php')">Próxima viagem</button>
         </div>
         <div class="col-12 col-md-6">
             <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('viagens.php')">Viagens</button>
@@ -31,8 +31,8 @@
 
 
 <script> 
-//Trocar os botões por âncoras desconfigura a página, mesmo quando especifico "role = button"
-//TODO: Resolver incompatibilidades das âncoras com os estilos
+    //Trocar os botões por âncoras desconfigura a página, mesmo quando especifico "role = button"
+    //TODO: Resolver incompatibilidades das âncoras com os estilos
     function redirecionarPagina(pagina){
         window.location.href = pagina;
     }

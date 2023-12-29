@@ -29,6 +29,7 @@ CREATE TABLE `pagamento` (
     `id_passageiro` SMALLINT NOT NULL ,
     `id_viagem` SMALLINT NOT NULL ,
     `pago` BOOLEAN NOT NULL DEFAULT 0,
+    PRIMARY KEY (`id_passageiro`, `id_viagem`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
 --Valores de teste
@@ -40,11 +41,6 @@ INSERT INTO `passageiro` (`id`, `nome`, `contacto`) VALUES
 
 INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_passageiros`, `custo_total`, `custo_unit`, `estado`, `observacoes`) VALUES 
 (NULL, 'Braga', 'Porto', '2024-01-07', '105', '550', '10', 'Agendada', NULL),
-(NULL, 'Évora', DEFAULT, '2023-12-21', '23', '820', '17', 'Realizada', NULL);
-(NULL, 'Ovar', DEFAULT, '2024-01-14', DEFAULT, '700', '13', 'Confirmada', 'Festival dos pães-de-ló');
+(NULL, 'Évora', DEFAULT, '2023-12-21', '23', '820', '17', 'Realizada', NULL),
+(NULL, 'Ovar', DEFAULT, '2024-01-14', '54', '700', '13', 'Confirmada', 'Festival dos pães-de-ló');
 
-/*
-Silvestre e Mariano foram a Évora
-^Pagou      ^Não pagou
-*/
-INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`) VALUES ('1', '2', '1'), ('3', '2', '0');
