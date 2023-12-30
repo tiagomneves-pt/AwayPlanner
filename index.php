@@ -10,9 +10,17 @@
     
 </head>
 <body>
+    <?php require('includes/database.php'); ?>
+    <?php 
+    $sql_prox_viagem   = 'SELECT destino, data_viagem FROM viagens WHERE data_viagem >= CURRENT_DATE ORDER BY data_viagem LIMIT 1';
+    $stmt_prox_viagem  = $dbh->prepare($sql_prox_viagem);
+    $stmt_prox_viagem  = $stmt_prox_viagem->execute();
+
+    $prox_viagem = stmt_prox_viagem->fetchObject();
+    ?>
     <div class="row g-0">
         <div class="col-12 col-md-6">
-            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Próxima viagem</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Próxima viagem: <h5><?= $prox_viagem->destino</h5></button>
         </div>
         <div class="col-12 col-md-6">
             <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('viagens.php')">Viagens</button>
