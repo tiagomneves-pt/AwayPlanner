@@ -32,8 +32,9 @@
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Contacto</th>
-                    <th scope="col">Pago</th>
+                    <th style="width: 15%" scope="col">Contacto</th>
+                    <th style="width: 10%" scope="col">Pago</th>
+                    <th style="width: 10%" scope="col">Opções</th>
                 </tr>
             </thead>
             <?php
@@ -46,14 +47,23 @@
                 <tr>
                     <td><?= $nome ?></td>
                     <td><?= $contacto ?></td>
-                    <td><input <?php if($pago == 1) echo 'checked';?>  class="form-check-input" type="checkbox" onclick="alterarPagamento(this)" id="<?= $passageiro->id?>"></td>                    
+                    <td><input <?php if($pago == 1) echo 'checked';?>  class="form-check-input" type="checkbox" onclick="alterarPagamento(this)" id="<?= $passageiro->id?>"></td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="editPassageiro.php?id_p=<?= $passageiro->id; ?>&id_v=<?=$_GET['id'];?>&destino=<?= $_GET['destino']; ?>" class="btn btn-primary">Edit</a>
+                            <!-- <a href="deleteUC.php?uc=<?= $passageiro->id; ?>" class="btn btn-danger "></a> -->
+                            <a class="btn btn-danger delete-confirm" href="deletePassageiro.php?id=<?= $passageiro->id; ?>" data-bs-toggle="modal" data-bs-target="#DangerModalalert">
+                                Delete
+                            </a>
+                        </div>
+                    </td>       
                 </tr>
         <?php
         }
         ?>
             </tbody>
         </table>
-        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="#" role="button">+</a> 
+        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="addPassageiro.php?id=<?= $_GET['id'];?>&destino=<?=$_GET['destino'];?>" role="button">+</a> 
 </div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -62,3 +72,5 @@
         //TODO: UPDATE pagamento SET pago = 0 WHERE id_passageiro = checkbox.id & id_viagem = $id_viagem
     }
 </script>
+</body>
+</html>
