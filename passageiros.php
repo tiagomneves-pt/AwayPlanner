@@ -23,42 +23,87 @@
     $stmt->execute();
 ?>
 
-<div class="container mt-4">
-    <h2>Inscrições</h2>
-    <h5 style="color: #56445D"><?= $_GET['destino']?></h3>  
+    <div class="container mt-4">
+        <h2>Inscrições</h2>
+        <h5 style="color: #56445D"><?= $_GET['destino']?></h3>  
 
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Contacto</th>
-                    <th scope="col">Pago</th>
-                </tr>
-            </thead>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th style="width: 15%" scope="col">Contacto</th>
+                        <th style="width: 10%" scope="col">Pago</th>
+                        <th style="width: 10%" scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <?php
+                while($passageiro = $stmt->fetchObject()){
+                    $nome        = $passageiro->nome;
+                    $contacto    = $passageiro->contacto;
+                    $pago        = $passageiro->pago;
+                ?>
+                <tbody>
+                    <tr>
+                        <td><?= $nome ?></td>
+                        <td><?= $contacto ?></td>
+                        <td><input <?php if($pago == 1) echo 'checked';?>  class="form-check-input" type="checkbox" onclick="alterarPagamento(this)" id="<?= $passageiro->id?>"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="editPassageiro.php?id_p=<?= $passageiro->id; ?>&id_v=<?=$_GET['id'];?>&destino=<?= $_GET['destino']; ?>" class="btn btn-primary">Edit</a>
+                                <a class="btn btn-danger delete-confirm" href="deletePassageiro.php?id_p=<?= $passageiro->id; ?>&id_v=<?= $_GET['id']; ?>" data-bs-toggle="modal" data-bs-target="#DangerModalalert">
+                                    Delete
+                                </a>
+                            </div>
+                        </td>       
+                    </tr>
             <?php
-            while($passageiro = $stmt->fetchObject()){
-                $nome        = $passageiro->nome;
-                $contacto    = $passageiro->contacto;
-                $pago        = $passageiro->pago;
+            }
             ?>
-            <tbody>
-                <tr>
-                    <td><?= $nome ?></td>
-                    <td><?= $contacto ?></td>
-                    <td><input <?php if($pago == 1) echo 'checked';?>  class="form-check-input" type="checkbox" onclick="alterarPagamento(this)" id="<?= $passageiro->id?>"></td>                    
-                </tr>
-        <?php
-        }
-        ?>
-            </tbody>
-        </table>
-        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="#" role="button">+</a> 
-</div>
+                </tbody>
+            </table>
+            <a class="btn btn-outline-primary btn-lg position-relative start-50" href="addPassageiro.php?id=<?= $_GET['id'];?>&destino=<?=$_GET['destino'];?>" role="button">+</a> 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="DangerModalalert" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Confirmation</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">Tem a certeza que deseja apagar o registo?
+                </div>
+                <div class="modal-footer danger-md">
+                    <a class="btn btn-dark" data-bs-dismiss="modal">No</a>
+                    <a class="btn btn-danger delete-yes" href="#">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
-    function alterarPagamento(checkbox){
-        //TODO: UPDATE pagamento SET pago = 0 WHERE id_passageiro = checkbox.id & id_viagem = $id_viagem
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteLinks = document.querySelectorAll(".delete-confirm");
+
+        deleteLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var deleteUrl = this.href;
+                alert(deleteUrl);
+
+                var deleteYesLink = document.querySelector(".modal-footer .delete-yes");
+                if (deleteYesLink) {
+                    deleteYesLink.href = deleteUrl;
+                }
+
+                return false;
+            });
+        });
+    });
 </script>
+</body>
+</html>
