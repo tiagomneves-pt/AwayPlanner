@@ -40,7 +40,7 @@
             <div class="mb-3 row">
                 <label for="data" class="col-sm-2 col-form-label">Data</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" required id="data" name="data" min="2023-01-01" >
+                    <input type="date" class="form-control" required id="data" name="data">
                 </div>
             </div>
 
@@ -94,6 +94,11 @@
 
     <script src=" js/bootstrap.bundle.min.js"></script>
     <script>
+        // Obtenha o elemento de input de data
+        var dataInput = document.getElementById('data');
+
+        // Defina a data mínima como hoje
+        dataInput.min = new Date().toISOString().split('T')[0];
     </script>
 </body>
 
