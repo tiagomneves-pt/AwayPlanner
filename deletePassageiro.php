@@ -24,6 +24,13 @@ $stmt_update = $dbh->prepare($sql_updateInscritos);
 $stmt_update->bindParam(':id_viagem', $id_v);
 $stmt_update->execute();
 
+$sql_destino = 'SELECT destino FROM viagens WHERE id_viagem = :id_v';
+$stmt3 = $dbh->prepare($sql_destino);
+$stmt3->bindParam(':id_v', $id_v);
+$stmt3->execute();
+$destino = $stmt3->fetchObject();
+
 
 // Posso color mensagem de sucesso etc etc 
-echo ('<meta http-equiv="refresh" content="0; URL=viagens.php" />');
+echo "<meta http-equiv='refresh' content='0; URL=passageiros.php?id_v={$id_v}&destino={$destino->destino}' />";
+?>
