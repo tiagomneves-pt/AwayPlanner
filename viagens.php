@@ -26,6 +26,7 @@
                     <th scope="col">Data</th>
                     <th scope="col">Inscritos</th>
                     <th scope="col">Observações</th>                        
+                    <th style="width: 20%" scope="col">Opções</th>                        
                 </tr>
             </thead>
             <tbody>
@@ -62,6 +63,8 @@
                 </tbody>
         </table>
         <a class="btn btn-outline-primary btn-lg position-relative start-50" href="addViagem.php" role="button">+</a> 
+
+
 </div>
 
     <!-- Modal -->

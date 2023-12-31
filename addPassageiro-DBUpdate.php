@@ -43,6 +43,14 @@
     $stmt_update->bindParam(':id_viagem', $id_viagem);
     $stmt_update->execute();
 
+    $sql_passageiro = 'SELECT pago FROM pagamento WHERE id_passageiro = :id_p AND id_viagem = :id_v';
+    $stmt2 = $dbh->prepare($sql_passageiro);
+    $stmt2->bindValue(':id_p', $id_passageiro);
+    $stmt2->bindValue(':id_v', $id_viagem);
+    $stmt2->execute();
+
+    $pagou = $stmt2->fetchObject();
+
     ?>
 
     <div class="container mt-4">
@@ -63,7 +71,7 @@
             <div class="mb-3 row">
                 <label for="pago" class="col-sm-2 col-form-label">Pago</label>
                 <div class="col-sm-10">
-                    <input class="form-check-input" type="checkbox" value="1" id="pago" <?php echo isset($_POST['pago']) && $_POST['pago'] == 1 ? 'checked' : ''; ?> <?php echo isset($_POST['pago']) && $_POST['pago'] == 0 ? 'disabled' : ''; ?>>
+                    <input class="form-check-input" type="checkbox" value="<?php echo $pagou->pago; ?>" id="pago" name="pago" <?php echo $pagou->pago == 1 ? 'checked' : ''; ?> <?php echo $pagou->pago == 0 ? 'disabled' : ''; ?>>
                 </div>
             </div>
 
