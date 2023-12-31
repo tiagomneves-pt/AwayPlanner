@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AwayPlanner - Lista de inscrições</title>
+    <title>AwayPlanner - Adicionar Passageiro</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/cooper-hewitt" type="text/css"/>
@@ -16,7 +16,7 @@
     <?php require('includes/database.php'); ?>
 
     <?php
-    $id_viagem = $_GET['id'];
+    $id_viagem = $_GET['id_v'];
     $nome_passageiro = $_POST['nome'];
     $contacto_passageiro = $_POST['contacto'];  
     $pago = isset($_POST['pago']) ? 1 : 0;
@@ -63,7 +63,7 @@
             </div>
 
             <div class="col-12">
-                <a href="passageiros.php?id=<?= $_GET['id'];?>&destino=<?=$_GET['destino'];?>" class="btn btn-primary">voltar</a>
+                <a href="passageiros.php?id_v=<?= $_GET['id_v'];?>&destino=<?=$_GET['destino'];?>" class="btn btn-primary">voltar</a>
             </div>
         </form>
     </div>
