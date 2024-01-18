@@ -1,0 +1,68 @@
+/*TODO: arranjar um conjunto de cores como deve ser.*/
+/*
+***Códigos hexa porreiros***
+branco: #f4f3f7
+preto: #0f0a0a
+cinzento: #C0C0C0
+cor-primária: #D0BAA9 (castanho)
+cor-secundária: #56445D (violeta)
+
+*/
+/*FIXME: Modificar os estilos de modo a não modificar as classes do bootstrap*/
+body{
+    background-color: #f4f3f7; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0f0a0a;
+}
+
+.btn-ap-primary {
+    background-color: #f4f3f7;
+    border-width: 2px;
+    font-size: 40px;
+    transition: background-color 0.3s ease;
+    font-family: 'CooperHewittSemibold';
+    font-weight: normal;
+    font-style: normal;
+}
+
+.btn-ap-primary:hover,
+.btn-ap-primary:focus,
+.opcoes-index:hover,
+.opcoes-index:focus{
+    background-color: #D0BAA9;
+}
+
+.participante-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 16px;
+}
+.opcoes-index{
+    height: 25vh;
+    width: 100%;
+    background-color: #f4f3f7;
+    border-width: 1px;
+    font-size: 40px;
+}
+
+/*768px é equivalente ao tamanho médio do Bootstrap*/
+@media (min-width: 768px){
+    .opcoes-index {
+        height: 50vh;
+    }
+}
+
+.nav-link{
+    color: #56445D;
+    font-family: 'CooperHewittSemiBold';
+    font-weight: normal;
+    font-style: normal;
+}
+.nav-link:hover,
+.nav-link:focus{
+    color: #D0BAA9;
+    transition: 0.5s;
+}
