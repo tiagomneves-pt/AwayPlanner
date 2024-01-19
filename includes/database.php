@@ -1,6 +1,6 @@
 <?php
-    $user = 'web'; 
-    $pass = 'web';
+    $user = 'root'; 
+    $pass = '';
 
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=grupo-01;charset=utf8', $user, $pass);

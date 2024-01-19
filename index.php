@@ -27,7 +27,7 @@
             <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('viagens.php')">Viagens</button>
         </div>
         <div class="col-12 col-md-6">
-            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Documentos</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Análises</button>
         </div>
         <div class="col-12 col-md-6">
             <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Apoio técnico</button>
