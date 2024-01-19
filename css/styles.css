@@ -5,14 +5,14 @@ branco: #f4f3f7
 preto: #0f0a0a
 cinzento: #C0C0C0
 cor-primária: #D0BAA9 (castanho)
-cor-secundária: #56445D (violeta)
+cor-secundária: #37392E (azeitona)
 
 */
 /*FIXME: Modificar os estilos de modo a não modificar as classes do bootstrap*/
 body{
     background-color: #f4f3f7; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #0f0a0a;
+    color: #37392E;
 }
 
 .btn-ap-primary {
@@ -56,7 +56,7 @@ body{
 }
 
 .nav-link{
-    color: #56445D;
+    color: #37392E;
     font-family: 'CooperHewittSemiBold';
     font-weight: normal;
     font-style: normal;
