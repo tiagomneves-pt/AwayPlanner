@@ -1,4 +1,4 @@
-<?php require('includes/database.php'); ?>
+<?php require('../includes/database.php'); ?>
 
 <?php
 $id_viagem = $_GET['id_v'];
@@ -25,4 +25,4 @@ $stmt3->execute();
 
 
 // Posso color mensagem de sucesso etc etc 
-echo ('<meta http-equiv="refresh" content="0; URL=viagens.php" />');
+echo ('<meta http-equiv="refresh" content="0; URL=../viagens.php" />');

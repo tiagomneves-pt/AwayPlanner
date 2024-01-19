@@ -1,4 +1,4 @@
-<?php require('includes/database.php'); ?>
+<?php require('../includes/database.php'); ?>
 
 <?php
 
@@ -32,5 +32,5 @@ $destino = $stmt3->fetchObject();
 
 
 // Posso color mensagem de sucesso etc etc 
-echo "<meta http-equiv='refresh' content='0; URL=passageiros.php?id_v={$id_v}&destino={$destino->destino}' />";
+echo "<meta http-equiv='refresh' content='0; URL=../passageiros.php?id_v={$id_v}&destino={$destino->destino}' />";
 ?>

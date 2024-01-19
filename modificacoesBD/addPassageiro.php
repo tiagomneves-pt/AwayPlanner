@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <?php require('includes/menu.html'); ?>
+    <?php require('../includes/menu.html'); ?>
 
-    <?php require('includes/database.php'); ?>
+    <?php require('../includes/database.php'); ?>
 
     <div class="container mt-4">
         <div class="mt-2 p-3 text-white bg-dark">
@@ -50,7 +50,7 @@
         </form>
     </div>
 
-    <script src=" js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
     </script>
 </body>

@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <?php require('includes/menu.html'); ?>
+    <?php require('../includes/menu.html'); ?>
 
-    <?php require('includes/database.php'); ?>
+    <?php require('../includes/database.php'); ?>
 
     <?php
         $id_passageiro = $_GET['id_p'];
@@ -70,7 +70,7 @@
         </form>
     </div>
 
-    <script src=" js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <?php require('includes/menu.html'); ?>
+    <?php require('../includes/menu.html'); ?>
 
-    <?php require('includes/database.php'); ?>
+    <?php require('../includes/database.php'); ?>
 
     <?php
     $id_viagem = $_GET['id_v'];
