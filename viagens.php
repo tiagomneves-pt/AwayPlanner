@@ -61,7 +61,7 @@
                     ?>
                 </tbody>
         </table>
-        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="addViagem.php" role="button">+</a> 
+        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="modificacoesBD/addViagem.php" role="button">+</a> 
 
 
 </div>
