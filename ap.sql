@@ -36,7 +36,7 @@ CREATE TABLE `pagamento` (
 INSERT INTO `passageiro` (`id`, `nome`, `contacto`) VALUES
 (NULL, 'Silvestre Serra', '910123456'),
 (NULL, 'Álvaro Miranda', '910123456'),
-(NULL, 'Mariano Rocha', '910123456');
+(NULL, 'Mariano Rocha', '910123456'),
 (NULL, 'Catarina Oliveira', '910123456'),
 (NULL, 'Ricardo Almeida', '910123456'),
 (NULL, 'Eduarda Santos', '910123456'),
