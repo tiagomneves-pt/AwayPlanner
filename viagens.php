@@ -18,10 +18,10 @@
 
 
 <div class="container mt-4">
-    <h2>Viagens planeadas</h2>  
+    <h2 class="mb-3">Viagens planeadas</h2>  
         <table class="table table-hover">
             <thead>
-                <tr>
+                <tr class="table-dark">
                     <th scope="col">Destino</th>
                     <th scope="col">Data</th>
                     <th scope="col">Inscritos</th>
@@ -38,22 +38,34 @@
                     $stmt->execute();
 
                     while($viagem = $stmt->fetchObject()){
-                        print_r("<tr>");
+                        switch($viagem->estado){
+                            case "Realizada":
+                                $cor_linha = "table-secondary";
+                                break;
+                            case "Cancelada":
+                                $cor_linha = "table-danger";
+                                break;
+                            case "Agendada":
+                                $cor_linha = "table-info";
+                                break;
+                            case "Confirmada":
+                                $cor_linha = "table-success";
+                                break;
+                            default:
+                                $cor_linha = "table-default";
+                                break;
+                        }
+
+                        print_r("<tr class='$cor_linha'>");
                         print_r("<td>" . $viagem->destino . "</td>");
                         print_r("<td>" . $viagem->data_viagem . "</td>");
                         print_r("<td>" . $viagem->num_inscritos . "/" .  $viagem->num_passageiros . "</td>");
                         print_r("<td>" . $viagem->observacoes . "</td>");
                 ?>
                         <td>
-                            <a class="btn btn-secondary" href="passageiros.php?id_v=<?=$viagem->id_viagem;?>&destino=<?= $viagem->destino?>" role="button" style="margin:2px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16"><path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/></svg></a>
-
-                            <a class="btn btn-secondary" href="editViagem.php?id_v=<?=$viagem->id_viagem;?>" role="button" style="margin: 2px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/></svg></a>
-
-                            <a class="btn btn-secondary delete-confirm" href="delViagem.php?id_v=<?=$viagem->id_viagem;?>" data-bs-toggle="modal" data-bs-target="#DangerModalalert">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/></svg>
-                            </a>
+                            <a class="btn btn-outline-secondary" href="passageiros.php?id_v=<?=$viagem->id_viagem;?>&destino=<?= $viagem->destino?>" role="button"  style="margin:2px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16"><path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/></svg></a>
+                            <a class="btn btn-outline-secondary" href="modificacoesBD/editViagem.php?id_v=<?=$viagem->id_viagem;?>" role="button" style="margin: 2px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/></svg></a>
+                            <a class="btn btn-outline-secondary delete-confirm" href="delViagem.php?id_v=<?=$viagem->id_viagem;?>" data-bs-toggle="modal" data-bs-target="#DangerModalalert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/></svg></a>
                         </td>
                     <?php
                         print_r("</tr>");
@@ -61,7 +73,7 @@
                     ?>
                 </tbody>
         </table>
-        <a class="btn btn-outline-primary btn-lg position-relative start-50" href="modificacoesBD/addViagem.php" role="button">+</a> 
+        <a class="btn btn-outline-primary mb-3 btn-lg position-relative start-50" href="modificacoesBD/addViagem.php" role="button">+</a> 
 
 
 </div>
