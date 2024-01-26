@@ -43,7 +43,7 @@
                     <label class="form-check-label" for="formCheckChecked">Pago</label>
                 </div>
             </div>
-
+<!--TODO: Incrementar nº de inscrições na tabela viagens-->
             <div class="col-12">
                 <button class="btn btn-success" type="submit">Inserir</button>
             </div>
