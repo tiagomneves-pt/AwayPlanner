@@ -49,7 +49,7 @@ INSERT INTO `passageiro` (`id`, `nome`, `contacto`) VALUES
 (NULL, 'Gustavo Ribeiro', '910123456');
 
 INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_passageiros`, `custo_total`, `custo_unit`, `estado`, `observacoes`) VALUES 
-(NULL, 'Faro', DEFAULT, '2023-12-15', 108, 600, 300, 'Realizada', NULL),
+(NULL, 'Faro', DEFAULT, '2023-12-15', 108, 600, 300, 'Cancelada', NULL),
 (NULL, 'Braga', DEFAULT, '2024-03-05', DEFAULT, 750, 14, 'Agendada', NULL),
 (NULL, 'Porto', 'Taveiro', '2024-03-10', 108, 750, 100, 'Confirmada', NULL),
 (NULL, 'Lisboa', DEFAULT, '2024-04-01', 216, 800, 100, 'Agendada', NULL),
@@ -63,7 +63,7 @@ INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_pa
 (NULL, 'Braga', DEFAULT, '2023-11-18', DEFAULT, 720, 13.5, 'Realizada', NULL),
 (NULL, 'Lisboa', DEFAULT, '2024-07-15', 216, 825, 100, 'Agendada', NULL),
 (NULL, 'Porto', 'Condeixa', '2024-03-05', 216, 717, 100, 'Agendada', NULL),
-(NULL, 'Faro', DEFAULT, '2024-10-10', DEFAULT, 1245, 14, 'Realizada', NULL);
+(NULL, 'Faro', DEFAULT, '2024-10-10', DEFAULT, 1245, 14, 'Agendada', NULL);
 
 INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`) VALUES 
 ('2', '9', '0'),
