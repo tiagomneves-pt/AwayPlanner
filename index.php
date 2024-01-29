@@ -21,13 +21,13 @@
     ?>
     <div class="row g-0">
         <div class="col-12 col-md-6">
-            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('passageiros.php?id=<?= $prox_viagem->id_viagem?>&destino=<?= $prox_viagem->destino?>')">Próxima viagem: <h1 style="color: #37392E"><?= $prox_viagem->destino?></h1> </button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('passageiros.php?id_v=<?= $prox_viagem->id_viagem?>&destino=<?= $prox_viagem->destino?>')">Próxima viagem: <h1 style="color: #37392E"><?= $prox_viagem->destino?></h1> </button>
         </div>
         <div class="col-12 col-md-6">
             <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('viagens.php')">Viagens</button>
         </div>
         <div class="col-12 col-md-6">
-            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina()">Análises</button>
+            <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('analises.php')">Análises</button>
         </div>
         <div class="col-12 col-md-6">
             <button type="button" class="btn-ap-primary opcoes-index" onclick="redirecionarPagina('contactos.php')">Apoio técnico</button>
