@@ -9,8 +9,9 @@
     - Acessível pela navbar e pela página inicial do cliente
 2. Página "Análises"
 
-### _Bug fixes_
-
+### Correcção de _bugs_ 
+1. [index.php](index.php)
+    - Botão "Próxima viagem" funcional
 
 ### Formatação/UI
 1. Navbar
