@@ -66,3 +66,8 @@ body{
     color: #D0BAA9;
     transition: 0.5s;
 }
+
+.form-control::placeholder { 
+    color: #8C8C91; 
+    opacity: 1;
+}
