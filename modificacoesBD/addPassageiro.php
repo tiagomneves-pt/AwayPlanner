@@ -17,33 +17,29 @@
 
     <div class="container mt-4">
         <div class="mt-2 p-3 text-white bg-dark">
-            Adicionar Passageiro à viagem a <?=$_GET['destino'];?> 
+            Adicionar passageiro à viagem a <?=$_GET['destino'];?> 
         </div>
     </div>
 
     <div class="container mt-4">
         <form action="addPassageiro-DBUpdate.php?id_v=<?= $_GET['id_v'];?>&destino=<?=$_GET['destino'];?>" method="POST">
             <div class="mb-3 row">
-                <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
+                <label for="nome" class="col-sm-2 col-form-label">Nome completo</label>
+                <div class="col-sm-6 me-5">
                     <input type="text" class="form-control" id="nome" name="nome" required placeholder="Nome">
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="contacto" class="col-sm-2 col-form-label">Contacto</label>
-                <div class="col-sm-10">
-                    <input type="tel" class="form-control" required id="contacto" name="contacto" placeholder="Contacto">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="pago" class="col-sm-2 col-form-label">Pago</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                     <input class="form-check-input" type="checkbox" value="" id="pago" name="pago" checked="">
                     <label class="form-check-label" for="formCheckChecked">Pago</label>
                 </div>
             </div>
-<!--TODO: Incrementar nº de inscrições na tabela viagens-->
+            <div class="mb-3 row">
+                <label for="contacto" class="col-sm-2 col-form-label">Contacto telefónico</label>
+                <div class="col-sm-2">
+                    <input type="tel" class="form-control" required id="contacto" name="contacto" placeholder="Contacto">
+                </div>
+            </div>
+
             <div class="col-12">
                 <button class="btn btn-success" type="submit">Inserir</button>
             </div>
@@ -51,8 +47,6 @@
     </div>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script>
-    </script>
 </body>
 
 </html>

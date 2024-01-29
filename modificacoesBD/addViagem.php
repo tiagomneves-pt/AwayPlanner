@@ -78,20 +78,22 @@
                     <div class="mb-3 row">
                         <label for="observ" class="col-sm-2 col-form-label">Observações</label>
                         <div class="col-sm-20">
-                                <textarea type="text" class="form-control" id="observ" name="observ" placeholder="Observações" rows="3"></textarea>
+                                <textarea type="text" class="form-control" id="observ" name="observ" placeholder="Escreva aqui" rows="3"></textarea>
                         </div>
                     </div>  
                 </div>
 
-                <div class="col-12 position-relative start-50">
-                    <button class="btn btn-success" type="submit">Adicionar viagem</button>
-                </div>
+
             </div>
-            
+            <div class="row">
+                <div class="col-6 position-relative start-50">
+                        <button class="btn btn-success" type="submit">Adicionar viagem</button>
+                </div>
+            </div>            
         </form>
     </div>
 
-    <script src=" js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
         // Obtenha o elemento de input de data
         var dataInput = document.getElementById('data');
