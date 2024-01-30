@@ -6,12 +6,14 @@
     <title>AwayPlanner - Página Principal</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/cooper-hewitt" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <style>
-
         .opcoes-index{
             position: relative;
             z-index: 1;
+            font-family: 'Montserrat', sans-serif;
         }   
         .opcoes-index::before {
             position: absolute;
@@ -27,7 +29,6 @@
                 hsla(25, 8%, 51%, 1) 80%,
                 hsla(24, 5%, 39%, 1) 90%,
                 hsla(0, 0%, 27%, 1) 100%);
-            );
             z-index: -1;
             transition: opacity 1.5s linear;
             opacity: 0;

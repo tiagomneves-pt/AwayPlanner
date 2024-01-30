@@ -6,7 +6,9 @@
     <title>AwayPlanner - Viagens</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/cooper-hewitt" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -83,14 +85,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Confirmation</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Apagar viagem</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">Tem a certeza que deseja apagar o registo?
-                </div>
+                <div class="modal-body">Tem a certeza que deseja apagar permanentemente o registo? Esta acção não é reversível.</div>
                 <div class="modal-footer danger-md">
-                    <a class="btn btn-dark" data-bs-dismiss="modal">No</a>
-                    <a class="btn btn-danger delete-yes" href="#">Yes</a>
+                    <a class="btn btn-dark" data-bs-dismiss="modal">Não</a>
+                    <a class="btn btn-danger delete-yes" href="#">Sim</a>
                 </div>
             </div>
         </div>

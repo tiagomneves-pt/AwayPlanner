@@ -6,7 +6,9 @@
     <title>AwayPlanner - Editar Viagem</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/cooper-hewitt" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     
 </head>
 
@@ -30,8 +32,8 @@
     ?>
 
     <div class="container mt-4">
-        <div class="mt-2 p-3 text-white bg-dark">
-            Adicionar Viagem
+        <div class="text-white bg-dark bg-gradient bg-opacity-75" style="">
+            <h3 class="ms-2 p-2">Editar viagem</h3>
         </div>
     </div>
 

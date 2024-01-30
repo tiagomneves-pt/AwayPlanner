@@ -3,6 +3,7 @@
 <?php
 $id_viagem = $_GET['id_v'];
 
+//TODO: Trocar os deletes por UPDATE para os registos não serem completamente apagados da BD 
 //Excluir registros da tabela de passageiros relacionados à viagem
 $sql_passageiro = 'DELETE FROM passageiro
                 WHERE id IN (SELECT id_passageiro FROM pagamento WHERE id_viagem = :id_viagem)';

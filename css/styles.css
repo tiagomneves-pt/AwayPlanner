@@ -11,28 +11,10 @@ cor-secundária: #37392E (azeitona)
 /*FIXME: Modificar os estilos de modo a não modificar as classes do bootstrap*/
 body{
     background-color: #f4f3f7; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #37392E;
 }
 
-.bg-awayplanner{
-    --bs-awayplanner-rgb: 55,57,46;
-    --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-awayplanner-rgb), var(--bs-bg-opacity)) !important;
-}
-
-.participante-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 16px;
-}
 .opcoes-index{
-    font-family: 'CooperHewittSemibold';
-    font-weight: normal;
-    font-style: normal;
     height: 25vh;
     width: 100%;
     background-color: #f4f3f7;
@@ -47,11 +29,11 @@ body{
     }
 }
 
-.nav-link{
+.nav-link,
+.navbar-brand{
     color: #37392E;
-    font-family: 'CooperHewittSemiBold';
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 }
 .nav-link:hover,
 .nav-link:focus{
