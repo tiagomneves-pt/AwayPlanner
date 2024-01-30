@@ -15,21 +15,10 @@ body{
     color: #37392E;
 }
 
-.btn-ap-primary {
-    background-color: #f4f3f7;
-    border-width: 2px;
-    font-size: 40px;
-    transition: background-color 0.3s ease;
-    font-family: 'CooperHewittSemibold';
-    font-weight: normal;
-    font-style: normal;
-}
-
-.btn-ap-primary:hover,
-.btn-ap-primary:focus,
-.opcoes-index:hover,
-.opcoes-index:focus{
-    background-color: #D0BAA9;
+.bg-awayplanner{
+    --bs-awayplanner-rgb: 55,57,46;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-awayplanner-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .participante-info {
@@ -41,6 +30,9 @@ body{
     padding-bottom: 16px;
 }
 .opcoes-index{
+    font-family: 'CooperHewittSemibold';
+    font-weight: normal;
+    font-style: normal;
     height: 25vh;
     width: 100%;
     background-color: #f4f3f7;
