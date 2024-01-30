@@ -28,7 +28,8 @@
     $estado = $_POST['estado'];
     $observ = $_POST['observ'];
 
-    $sql = "INSERT INTO viagens (destino, partida, data_viagem, num_passageiros, num_inscritos, custo_total, custo_unit, estado, observacoes) VALUES (:destino, :partida, :data_viagem, :num_passageiros, :num_inscritos, :custo_total, :custo_unitario, :estado, :observ)";
+
+    $sql = "INSERT INTO viagens (destino, partida, data_viagem, num_passageiros, num_inscritos, custo_total, custo_unit, estado, observacoes, visibilidade) VALUES (:destino, :partida, :data_viagem, :num_passageiros, :num_inscritos, :custo_total, :custo_unitario, :estado, :observ, '1')";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':destino', $destino);
     $stmt->bindParam(':partida', $partida);
@@ -112,4 +113,3 @@
             </div>
         </form>
     </div>
-    <?php

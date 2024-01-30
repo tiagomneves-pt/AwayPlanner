@@ -14,6 +14,7 @@ CREATE TABLE `viagens` (
     `custo_unit` float unsigned NOT NULL,
     `estado` varchar(10) NOT NULL, --Estado pode ser "Cancelada, Agendada, Confirmada, Realizada"
     `observacoes` varchar(512) DEFAULT NULL,
+    `visibilidade` BOOLEAN NOT NULL DEFAULT 1, --Actualizar este atributo no momento de apagar uma viagem. A viagem fica escondida para o utilizador, mas o seu registo pode ser recuperado
     PRIMARY KEY (`id_viagem`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
@@ -22,6 +23,7 @@ CREATE TABLE `passageiro` (
     `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
     `nome` varchar(255) NOT NULL,
     `contacto` varchar(10) NOT NULL,
+    `visibilidade` BOOLEAN NOT NULL DEFAULT 1,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
@@ -29,50 +31,51 @@ CREATE TABLE `pagamento` (
     `id_passageiro` SMALLINT NOT NULL ,
     `id_viagem` SMALLINT NOT NULL ,
     `pago` BOOLEAN NOT NULL DEFAULT 0,
+    `visibilidade` BOOLEAN NOT NULL DEFAULT 1,
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
 --Valores de teste
 --id NULL porque está incrementar automaticamente
-INSERT INTO `passageiro` (`id`, `nome`, `contacto`) VALUES
-(NULL, 'Silvestre Serra', '910123456'),
-(NULL, 'Álvaro Miranda', '910123456'),
-(NULL, 'Mariano Rocha', '910123456'),
-(NULL, 'Catarina Oliveira', '910123456'),
-(NULL, 'Ricardo Almeida', '910123456'),
-(NULL, 'Eduarda Santos', '910123456'),
-(NULL, 'Leonardo Pereira', '910123456'),
-(NULL, 'Beatriz Silva', '910123456'),
-(NULL, 'Henrique Sousa', '910123456'),
-(NULL, 'Isabel Mendes', '910123456'),
-(NULL, 'António Fernandes', '910123456'),
-(NULL, 'Carolina Martins', '910123456'),
-(NULL, 'Gustavo Ribeiro', '910123456');
+INSERT INTO `passageiro` (`id`, `nome`, `contacto`, `visibilidade`) VALUES
+(NULL, 'Silvestre Serra', '910123456', '1'),
+(NULL, 'Álvaro Miranda', '910123456', '1'),
+(NULL, 'Mariano Rocha', '910123456', '1'),
+(NULL, 'Catarina Oliveira', '910123456', '1'),
+(NULL, 'Ricardo Almeida', '910123456', '1'),
+(NULL, 'Eduarda Santos', '910123456', '1'),
+(NULL, 'Leonardo Pereira', '910123456', '1'),
+(NULL, 'Beatriz Silva', '910123456', '1'),
+(NULL, 'Henrique Sousa', '910123456', '1'),
+(NULL, 'Isabel Mendes', '910123456', '1'),
+(NULL, 'António Fernandes', '910123456', '1'),
+(NULL, 'Carolina Martins', '910123456', '1'),
+(NULL, 'Gustavo Ribeiro', '910123456', '1');
 
-INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_passageiros`, `custo_total`, `custo_unit`, `estado`, `observacoes`) VALUES 
-(NULL, 'Faro', DEFAULT, '2023-12-15', 108, 600, 300, 'Cancelada', NULL),
-(NULL, 'Braga', DEFAULT, '2024-03-05', DEFAULT, 750, 14, 'Agendada', NULL),
-(NULL, 'Porto', 'Taveiro', '2024-03-10', 108, 750, 100, 'Confirmada', NULL),
-(NULL, 'Lisboa', DEFAULT, '2024-04-01', 216, 800, 100, 'Agendada', NULL),
-(NULL, 'Aveiro', DEFAULT, '2023-12-18', DEFAULT, 400, 15, 'Realizada', NULL),
-(NULL, 'Porto', 'Taveiro', '2024-11-30', 216, 500, 100, 'Agendada', NULL),
-(NULL, 'Évora', DEFAULT, '2024-10-25', DEFAULT, 780, 14.5, 'Agendada', NULL),
-(NULL, 'Évora', DEFAULT, '2023-12-05', 108, 1020, 100, 'Realizada', NULL),
-(NULL, 'Bragança', 'Condeixa', '2024-02-28', DEFAULT, 1100, 15.5, 'Confirmada', NULL),
-(NULL, 'Porto', DEFAULT, '2024-06-10', 108, 700, 100, 'Agendada', NULL),
-(NULL, 'Aveiro', 'Cernache', '2024-04-22', DEFAULT, 540, 16.5, 'Confirmada', NULL),
-(NULL, 'Braga', DEFAULT, '2023-11-18', DEFAULT, 720, 13.5, 'Realizada', NULL),
-(NULL, 'Lisboa', DEFAULT, '2024-07-15', 216, 825, 100, 'Agendada', NULL),
-(NULL, 'Porto', 'Condeixa', '2024-03-05', 216, 717, 100, 'Agendada', NULL),
-(NULL, 'Faro', DEFAULT, '2024-10-10', DEFAULT, 1245, 14, 'Agendada', NULL);
+INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_passageiros`, `custo_total`, `custo_unit`, `estado`, `observacoes`, `visibilidade`) VALUES 
+(NULL, 'Faro', DEFAULT, '2023-12-15', 108, 600, 300, 'Cancelada', NULL, '1'),
+(NULL, 'Braga', DEFAULT, '2024-03-05', DEFAULT, 750, 14, 'Agendada', NULL, '1'),
+(NULL, 'Porto', 'Taveiro', '2024-03-10', 108, 750, 100, 'Confirmada', NULL, '1'),
+(NULL, 'Lisboa', DEFAULT, '2024-04-01', 216, 800, 100, 'Agendada', NULL, '1'),
+(NULL, 'Aveiro', DEFAULT, '2023-12-18', DEFAULT, 400, 15, 'Realizada', NULL, '1'),
+(NULL, 'Porto', 'Taveiro', '2024-11-30', 216, 500, 100, 'Agendada', NULL, '1'),
+(NULL, 'Évora', DEFAULT, '2024-10-25', DEFAULT, 780, 14.5, 'Agendada', NULL, '1'),
+(NULL, 'Évora', DEFAULT, '2023-12-05', 108, 1020, 100, 'Realizada', NULL, '1'),
+(NULL, 'Bragança', 'Condeixa', '2024-02-28', DEFAULT, 1100, 15.5, 'Confirmada', NULL, '1'),
+(NULL, 'Porto', DEFAULT, '2024-06-10', 108, 700, 100, 'Agendada', NULL, '1'),
+(NULL, 'Aveiro', 'Cernache', '2024-04-22', DEFAULT, 540, 16.5, 'Confirmada', NULL, '1'),
+(NULL, 'Braga', DEFAULT, '2023-11-18', DEFAULT, 720, 13.5, 'Realizada', NULL, '1'),
+(NULL, 'Lisboa', DEFAULT, '2024-07-15', 216, 825, 100, 'Agendada', NULL, '1'),
+(NULL, 'Porto', 'Condeixa', '2024-03-05', 216, 717, 100, 'Agendada', NULL, '1'),
+(NULL, 'Faro', DEFAULT, '2024-10-10', DEFAULT, 1245, 14, 'Agendada', NULL, '1');
 
-INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`) VALUES 
-('2', '9', '0'),
-('1', '9', '0'),
-('3', '9', '1'),
-('4', '9', '0'),
-('5', '9', '0'),
-('6', '9', '0'),
-('7', '9', '1'),
-('8', '9', '1'),
-('9', '9', '1'),
-('10', '9', '0');
+INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`, `visibilidade`) VALUES 
+('2', '9', '0', '0'),
+('1', '9', '0', '0'),
+('3', '9', '1', '0'),
+('4', '9', '0', '0'),
+('5', '9', '0', '0'),
+('6', '9', '0', '0'),
+('7', '9', '1', '0'),
+('8', '9', '1', '0'),
+('9', '9', '1', '0'),
+('10', '9', '0', '0');
