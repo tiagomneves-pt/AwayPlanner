@@ -34,7 +34,7 @@
         $stmt2->bindValue(':id_v', $id_viagem);
         $stmt2->execute();
 
-        $pagou = $stmt2->fetchObject();
+        $pagamento = $stmt2->fetchObject();
 
     ?>
 
@@ -47,22 +47,21 @@
     <div class="container mt-4">
         <form action="editPassageiro-DBUpdate.php?id_p=<?= $_GET['id_p']; ?>&id_v=<?= $_GET['id_v']; ?>&destino=<?= $_GET['destino']; ?>" method="POST">
             <div class="mb-3 row">
-                <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nome" name="nome" required value="<?php echo ($passageiro->nome); ?>">
+                <label for="nome" class="col-sm-2 col-form-label">Nome completo</label>
+                <div class="col-sm-6 me-5">
+                    <input type="text" class="form-control" id="nome" name="nome" required value = "<?=$passageiro->nome?>">
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="contacto" class="col-sm-2 col-form-label">Contacto</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" required id="contacto" name="contacto" value="<?php echo ($passageiro->contacto); ?>">
+
+                <div class="col-sm-2">
+                    <input <?php if($pagamento->pago == '1') echo 'checked';?> class="form-check-input" type="checkbox" onclick="definirValor(this)" value="" id="pagoCheckbox" name="pago">
+                    <label class="form-check-label" for="pagoCheckbox">Pago</label>
                 </div>
             </div>
 
             <div class="mb-3 row">
-                <label for="pago" class="col-sm-2 col-form-label">Pago</label>
-                <div class="col-sm-10">
-                    <input class="form-check-input" type="checkbox" value="<?php echo $pagou->pago; ?>" id="pago" name="pago" <?php echo $pagou->pago == 1 ? 'checked' : ''; ?> <?php echo $pagou->pago == 0 ? 'disabled' : ''; ?>>
+                <label for="contacto" class="col-sm-2 col-form-label">Contacto telefónico</label>
+                <div class="col-sm-2">
+                    <input type="tel" class="form-control" required id="contacto" name="contacto" required value = "<?=$passageiro->contacto?>">
                 </div>
             </div>
 
@@ -74,5 +73,14 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
+<script>
+    function definirValor(checkbox){
+        //console.log(checkbox.checked);
+        checkbox.setAttribute("value", (checkbox.checked ? 1 : 0));
+        console.log(checkbox.value);
+        
+    }
 
+    
+</script>
 </html>

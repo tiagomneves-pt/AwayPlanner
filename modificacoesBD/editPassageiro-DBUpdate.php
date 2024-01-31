@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AwayPlanner - Editar</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    
-</head>
+<?php require('../includes/database.php'); ?>
 
-<body>
-    <?php require('../includes/menu.html'); ?>
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-    <?php require('../includes/database.php'); ?>
-
-    <?php
     $id_passageiro = $_GET['id_p'];
     $id_viagem = $_GET['id_v'];
+    $destino = $_GET['destino'];
 
     $sql = 'SELECT passageiro.nome, passageiro.contacto, pagamento.pago 
                 FROM passageiro
@@ -29,70 +16,27 @@
     $stmt->bindParam(':id_v', $id_viagem);
     $stmt->bindParam(':id_p', $id_passageiro);
     $stmt->execute();
-    if ($stmt->rowCount() < 1) {
-    ?>
-        <div class="container mt-4">
-            <h4 class="danger">Não existe esse passageiro ou viagem!</h4>
-        </div>
-        <?php
-    } else {
-        //update passageiro
-        $sql_passageiro = "UPDATE passageiro SET nome = :nome, contacto = :contacto WHERE id = :id_p";
-        $stmt_passageiro = $dbh->prepare($sql_passageiro);
-        $stmt_passageiro->bindParam(':id_p', $id_passageiro);
-        $stmt_passageiro->bindParam(':nome', $_POST['nome']);
-        $stmt_passageiro->bindParam(':contacto', $_POST['contacto']);
-        $stmt_passageiro->execute();
+    
+    //update passageiro
+    $sql_passageiro = "UPDATE passageiro SET nome = :nome, contacto = :contacto WHERE id = :id_p";
+    $stmt_passageiro = $dbh->prepare($sql_passageiro);
+    $stmt_passageiro->bindParam(':id_p', $id_passageiro);
+    $stmt_passageiro->bindParam(':nome', $_POST['nome']);
+    $stmt_passageiro->bindParam(':contacto', $_POST['contacto']);
+    $stmt_passageiro->execute();
 
-        $sql_pagamento = "UPDATE pagamento SET pago = :pago WHERE id_passageiro = :id_p AND id_viagem = :id_v";
-        $stmt_pagamento = $dbh->prepare($sql_pagamento);
-        $stmt_pagamento->bindParam(':id_v', $id_viagem);
-        $stmt_pagamento->bindParam(':id_p', $id_passageiro);
+    $sql_pagamento = "UPDATE pagamento SET pago = :pago WHERE id_passageiro = :id_p AND id_viagem = :id_v";
+    $stmt_pagamento = $dbh->prepare($sql_pagamento);
+    $stmt_pagamento->bindParam(':id_v', $id_viagem);
+    $stmt_pagamento->bindParam(':id_p', $id_passageiro);
+    if (isset($_POST['pago'])) {
         $stmt_pagamento->bindParam(':pago', $_POST['pago']);
-        $stmt_pagamento->execute();
-
-
-        if ($stmt_passageiro->rowCount() < 1 AND $stmt_pagamento->rowCount() < 1) {
-        ?>
-            <div class="container mt-4">
-                <h4 class="danger">Não foram efetuadas alterações!</h4>
-            </div>
-        <?php
-        }
-        ?>
-        <div class="container mt-4">
-            <form action="editPassageiro-DBUpdate.php?id=<?= $_GET['id'];?>&id_v=<?=$_GET['id'];?>" method="POST">
-                <div class="mb-3 row">
-                    <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nome" name="nome" required value="<?php  echo $_POST['nome']; ?>" readonly>
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="contacto" class="col-sm-2 col-form-label">Contacto</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" required id="contacto" name="contacto" value="<?php  echo $_POST['contacto']; ?>" readonly>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <label for="pago" class="col-sm-2 col-form-label">Pago</label>
-                    <div class="col-sm-10">
-                        <input class="form-check-input" type="checkbox" value="" id="pago" name="pago" <?php echo isset($_POST['pago']) && $_POST['pago'] == 1 ? 'checked' : ''; ?> <?php echo isset($_POST['pago']) && $_POST['pago'] == 0 ? 'disabled' : ''; ?>>
-                        <label class="form-check-label" for="formCheckChecked">Pago</label>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <a href="passageiros.php?id=<?= $_GET['id_v'];?>&destino=<?=$_GET['destino'];?>" class="btn btn-primary">voltar</a>
-                </div>
-            </form>
-        </div>
-
-    <?php
+    } else {
+        // A checkbox quando não está 'checked' dá POST a um valor NULL
+        $stmt_pagamento->bindValue(':pago', 0);
     }
-    ?>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-</body>
 
-</html>
+    $stmt_pagamento->execute();
+
+    header("location:../passageiros.php?id_v=$id_viagem&destino=$destino");
+?>
