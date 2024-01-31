@@ -86,7 +86,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
 //TODO: Utilizar o ajax para alterar o estado do atributo "pago" na BD
-
+//WIP
     function alterarPagamento(checkboxPago){
         console.log(checkboxPago.id);
         console.log(checkboxPago.checked);
@@ -104,8 +104,8 @@
             link.addEventListener("click", function(event) {
                 event.preventDefault();
 
-                var deleteUrl = this.href;
-                alert(deleteUrl);
+                var deleteUrl = window.location.href;
+                //console.log(deleteUrl);
 
                 var deleteYesLink = document.querySelector(".modal-footer .delete-yes");
                 if (deleteYesLink) {

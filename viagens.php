@@ -106,7 +106,7 @@
             link.addEventListener("click", function(event) {
                 event.preventDefault();
 
-                var deleteUrl = this.href;
+                var deleteUrl = window.location.href;
 
                 var deleteYesLink = document.querySelector(".modal-footer .delete-yes");
                 if (deleteYesLink) {

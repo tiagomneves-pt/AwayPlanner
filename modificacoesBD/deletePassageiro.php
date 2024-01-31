@@ -1,12 +1,9 @@
 <?php require('../includes/database.php'); ?>
 
 <?php
-
-
 $id_p = $_GET['id_p'];
 $id_v = $_GET['id_v'];
 
-//TODO: Trocar os deletes por UPDATE para os registos não serem completamente apagados da BD 
 //Apagar da tabela Passageiro
 $stmt = $dbh->prepare("UPDATE passageiro SET visibilidade = '0' WHERE id=:id_p");
 $stmt->bindParam(":id_p", $id_p);
