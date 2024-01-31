@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AwayPlanner - Adicionar Passageiro</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    
-</head>
+<?php require('../includes/database.php'); ?>
 
-<body>
-    <?php require('../includes/menu.html'); ?>
-
-    <?php require('../includes/database.php'); ?>
-
-    <?php
+<?php
     $id_viagem = $_GET['id_v'];
+    $destino   = $_GET['destino'];
+
     $nome_passageiro = $_POST['nome'];
     $contacto_passageiro = $_POST['contacto'];  
     $pago = isset($_POST['pago']) ? 1 : 0;
@@ -53,33 +38,5 @@
 
     $pagou = $stmt2->fetchObject();
 
-    ?>
-
-    <div class="container mt-4">
-        <form action="addUC-DBUpdate.php" method="POST">
-            <div class="mb-3 row">
-                <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nome" name="nome" readonly value="<?php echo $_POST['nome']; ?>">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="contacto" class="col-sm-2 col-form-label">Contacto</label>
-                <div class="col-sm-10">
-                    <input type="tel" class="form-control" required id="contacto" name="contacto" value="<?php echo $_POST['contacto']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="pago" class="col-sm-2 col-form-label">Pago</label>
-                <div class="col-sm-10">
-                    <input class="form-check-input" type="checkbox" value="<?php echo $pagou->pago; ?>" id="pago" name="pago" <?php echo $pagou->pago == 1 ? 'checked' : ''; ?> <?php echo $pagou->pago == 0 ? 'disabled' : ''; ?>>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <a href="passageiros.php?id_v=<?= $_GET['id_v'];?>&destino=<?=$_GET['destino'];?>" class="btn btn-primary">Voltar</a>
-            </div>
-        </form>
-    </div>
-    <?php
+    header("location:../passageiros.php?id_v=$id_viagem&destino=$destino");
+?>
