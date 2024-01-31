@@ -34,21 +34,21 @@ CREATE TABLE `pagamento` (
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
 --Valores de teste
---id NULL porque está incrementar automaticamente
-INSERT INTO `passageiro` (`id`, `nome`, `contacto`, `visibilidade`) VALUES
-(NULL, 'Silvestre Serra', '910123456', '1'),
-(NULL, 'Álvaro Miranda', '910123456', '1'),
-(NULL, 'Mariano Rocha', '910123456', '1'),
-(NULL, 'Catarina Oliveira', '910123456', '1'),
-(NULL, 'Ricardo Almeida', '910123456', '1'),
-(NULL, 'Eduarda Santos', '910123456', '1'),
-(NULL, 'Leonardo Pereira', '910123456', '1'),
-(NULL, 'Beatriz Silva', '910123456', '1'),
-(NULL, 'Henrique Sousa', '910123456', '1'),
-(NULL, 'Isabel Mendes', '910123456', '1'),
-(NULL, 'António Fernandes', '910123456', '1'),
-(NULL, 'Carolina Martins', '910123456', '1'),
-(NULL, 'Gustavo Ribeiro', '910123456', '1');
+--id a NULL porque está incrementar automaticamente
+INSERT INTO `passageiro` (`id`, `nome`, `contacto`) VALUES
+(NULL, 'Silvestre Serra', '910123456'),
+(NULL, 'Álvaro Miranda', '910123456'),
+(NULL, 'Mariano Rocha', '910123456'),
+(NULL, 'Catarina Oliveira', '910123451'),
+(NULL, 'Ricardo Almeida', '910123456'),
+(NULL, 'Eduarda Santos', '910123456'),
+(NULL, 'Leonardo Pereira', '910123456'),
+(NULL, 'Beatriz Silva', '910123456'),
+(NULL, 'Henrique Sousa', '910123456'),
+(NULL, 'Isabel Mendes', '910123456'),
+(NULL, 'António Fernandes', '910123451'),
+(NULL, 'Carolina Martins', '910123456'),
+(NULL, 'Gustavo Ribeiro', '910123456');
 
 INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_passageiros`, `custo_total`, `custo_unit`, `estado`, `observacoes`, `visibilidade`) VALUES 
 (NULL, 'Faro', DEFAULT, '2023-12-15', 108, 600, 300, 'Cancelada', NULL, '1'),
@@ -67,14 +67,14 @@ INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_pa
 (NULL, 'Porto', 'Condeixa', '2024-03-05', 216, 717, 100, 'Agendada', NULL, '1'),
 (NULL, 'Faro', DEFAULT, '2024-10-10', DEFAULT, 1245, 14, 'Agendada', NULL, '1');
 
-INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`) VALUES 
-('2', '9', '0'),
-('1', '9', '0'),
-('3', '9', '1'),
-('4', '9', '0'),
-('5', '9', '0'),
-('6', '9', '0'),
-('7', '9', '1'),
-('8', '9', '1'),
-('9', '9', '1'),
-('10', '9', '0');
+INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`, `visibilidade`) VALUES 
+('2', '9', '0', '1'),
+('1', '9', '0', '1'),
+('3', '9', '1', '1'),
+('4', '9', '0', '1'),
+('5', '9', '0', '1'),
+('6', '9', '0', '1'),
+('7', '9', '1', '1'),
+('8', '9', '1', '1'),
+('9', '9', '1', '1'),
+('10', '9', '0', '1');
