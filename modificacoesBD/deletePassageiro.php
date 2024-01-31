@@ -4,11 +4,6 @@
 $id_p = $_GET['id_p'];
 $id_v = $_GET['id_v'];
 
-//Apagar da tabela Passageiro
-$stmt = $dbh->prepare("UPDATE passageiro SET visibilidade = '0' WHERE id=:id_p");
-$stmt->bindParam(":id_p", $id_p);
-$stmt->execute();
-
 //Apagar da tabela pagamento
 $stmt2 = $dbh->prepare("UPDATE pagamento SET visibilidade = '0' WHERE id_passageiro = :id_p AND id_viagem = :id_v");
 $stmt2->bindParam(":id_p", $id_p);

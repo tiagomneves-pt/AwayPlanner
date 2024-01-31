@@ -19,7 +19,7 @@
 <?php require('includes/database.php'); ?>
 <?php
     $id_viagem = $_GET['id_v'];
-    $sql_pagamento = 'SELECT * FROM pagamento p INNER JOIN passageiro g ON g.id = p.id_passageiro WHERE p.id_viagem = :id';
+    $sql_pagamento = 'SELECT * FROM pagamento p INNER JOIN passageiro g ON g.id = p.id_passageiro WHERE p.id_viagem = :id AND p.visibilidade = 1';
     $stmt = $dbh->prepare($sql_pagamento);
     $stmt->bindValue(':id', $id_viagem);
     $stmt->execute();
@@ -104,12 +104,9 @@
             link.addEventListener("click", function(event) {
                 event.preventDefault();
 
-                var deleteUrl = window.location.href;
-                //console.log(deleteUrl);
-
                 var deleteYesLink = document.querySelector(".modal-footer .delete-yes");
                 if (deleteYesLink) {
-                    deleteYesLink.href = deleteUrl;
+                    deleteYesLink.href = this.href;
                 }
 
                 return false;
