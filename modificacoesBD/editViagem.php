@@ -85,10 +85,10 @@
                         <div class="col-sm-3">
                             <div class="dropdown">
                                 <select class="form-select" id="opcoesEstado" name="estado" data-estado="<?= ($viagem->estado); ?>"> <!--TODO: Select index-->
-                                    <option value="agendada">Agendada</option>
-                                    <option value="confirmada">Confirmada</option>
-                                    <option value="cancelada">Cancelada</option>
-                                    <option style="display: none;" value="realizada">Realizada</option>
+                                    <option value="Agendada">Agendada</option>
+                                    <option value="Confirmada">Confirmada</option>
+                                    <option value="Cancelada">Cancelada</option>
+                                    <option style="display: none;" value="Realizada">Realizada</option>
                                 </select>
                             </div>
                         </div>
