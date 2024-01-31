@@ -11,14 +11,16 @@
 
 ### Aprimoramento de funções
 1. Atributo "visibilidade"
-    - As tabelas "viagens" e "passageiros" passaram a ter o atributo "visibilidade"
+    - As tabelas "viagens" e "pagamento" passaram a ter o atributo "visibilidade"
     - Permite que os registos sejam ocultados ao invés de serem apagados
     - As opções de administrador agora dão `UPDATE` à tabela em vez de `DELETE` 
 
 ### Correcção de _bugs_ 
 1. [index.php](index.php)
     - Botão "Próxima viagem" funcional
-
+2. [viagens.php](viagens.php) e [passageiros.php](passageiros.php)
+    - A página é carregada após o modal de confirmação
+    - ~~this.href~~ -> window.location.href 
 ### Formatação/UI
 1. Navbar
     - Páginas do lado do logo realinhadas à direita
