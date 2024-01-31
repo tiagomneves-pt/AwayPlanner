@@ -4,16 +4,16 @@
 
 
 $id_p = $_GET['id_p'];
-
 $id_v = $_GET['id_v'];
+
 //TODO: Trocar os deletes por UPDATE para os registos não serem completamente apagados da BD 
 //Apagar da tabela Passageiro
-$stmt = $dbh->prepare("DELETE FROM passageiro WHERE id=:id_p");
+$stmt = $dbh->prepare("UPDATE passageiro SET visibilidade = '0' WHERE id=:id_p");
 $stmt->bindParam(":id_p", $id_p);
 $stmt->execute();
 
 //Apagar da tabela pagamento
-$stmt2 = $dbh->prepare("DELETE FROM pagamento WHERE id_passageiro = :id_p AND id_viagem = :id_v");
+$stmt2 = $dbh->prepare("UPDATE pagamento SET visibilidade = '0' WHERE id_passageiro = :id_p AND id_viagem = :id_v");
 $stmt2->bindParam(":id_p", $id_p);
 $stmt2->bindParam(":id_v", $id_v);
 $stmt2->execute();

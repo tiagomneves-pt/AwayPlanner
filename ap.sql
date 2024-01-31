@@ -31,7 +31,6 @@ CREATE TABLE `pagamento` (
     `id_passageiro` SMALLINT NOT NULL ,
     `id_viagem` SMALLINT NOT NULL ,
     `pago` BOOLEAN NOT NULL DEFAULT 0,
-    `visibilidade` BOOLEAN NOT NULL DEFAULT 1,
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
 
 --Valores de teste
@@ -68,14 +67,14 @@ INSERT INTO `viagens` (`id_viagem`, `destino`, `partida`, `data_viagem`, `num_pa
 (NULL, 'Porto', 'Condeixa', '2024-03-05', 216, 717, 100, 'Agendada', NULL, '1'),
 (NULL, 'Faro', DEFAULT, '2024-10-10', DEFAULT, 1245, 14, 'Agendada', NULL, '1');
 
-INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`, `visibilidade`) VALUES 
-('2', '9', '0', '0'),
-('1', '9', '0', '0'),
-('3', '9', '1', '0'),
-('4', '9', '0', '0'),
-('5', '9', '0', '0'),
-('6', '9', '0', '0'),
-('7', '9', '1', '0'),
-('8', '9', '1', '0'),
-('9', '9', '1', '0'),
-('10', '9', '0', '0');
+INSERT INTO `pagamento` (`id_passageiro`, `id_viagem`, `pago`) VALUES 
+('2', '9', '0'),
+('1', '9', '0'),
+('3', '9', '1'),
+('4', '9', '0'),
+('5', '9', '0'),
+('6', '9', '0'),
+('7', '9', '1'),
+('8', '9', '1'),
+('9', '9', '1'),
+('10', '9', '0');
