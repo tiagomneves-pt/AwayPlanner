@@ -38,9 +38,9 @@
 
     ?>
 
-    <div class="container mt-4">
-        <div class="mt-2 p-3 text-white bg-dark">
-            Editar passageiro <?php echo ($passageiro->nome); ?>
+<div class="container mt-4">
+        <div class="bg-gradient" style="background-color: #37392E;">
+            <h4 class="ms-2 p-2" style="color:#f4f3f7;">A editar passageiro: <span style="color: #D0BAA9; font-weight:600;"><?php echo ($passageiro->nome); ?></span></h4>
         </div>
     </div>
 

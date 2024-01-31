@@ -18,8 +18,8 @@
     <?php require('../includes/database.php'); ?>
 
     <div class="container mt-4">
-        <div class="mt-2 p-3 text-white bg-dark">
-            Adicionar Viagem
+        <div class="bg-gradient" style="background-color: #37392E;">
+            <h3 class="ms-2 p-2" style="color:#f4f3f7;">Adicionar viagem</h3>
         </div>
     </div>
 
@@ -89,7 +89,7 @@
             </div>
             <div class="row">
                 <div class="col-6 position-relative start-50">
-                        <button class="btn btn-success" type="submit">Adicionar viagem</button>
+                        <button class="btn btn-success" type="submit">Adicionar</button>
                 </div>
             </div>            
         </form>

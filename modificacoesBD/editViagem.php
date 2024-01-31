@@ -32,8 +32,8 @@
     ?>
 
     <div class="container mt-4">
-        <div class="text-white bg-dark bg-gradient bg-opacity-75">
-            <h3 class="ms-2 p-2">Editar viagem</h3>
+        <div class="bg-gradient" style="background-color: #37392E;">
+            <h3 class="ms-2 p-2" style="color:#f4f3f7;">Editar viagem</h3>
         </div>
     </div>
 
