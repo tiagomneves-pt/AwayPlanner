@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AwayPlanner - Adicionar Passageiro</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    
-</head>
+<?php require('../includes/menu.html'); ?>
 
-<body>
-    <?php require('../includes/menu.html'); ?>
+<?php require('../includes/database.php'); ?>
 
-    <?php require('../includes/database.php'); ?>
-
-    <?php
+<?php
     $destino = $_POST['destino'];
     $partida = $_POST['partida'];
     $data_viagem = $_POST['data'];  
@@ -29,7 +14,8 @@
     $observ = $_POST['observ'];
 
 
-    $sql = "INSERT INTO viagens (destino, partida, data_viagem, num_passageiros, num_inscritos, custo_total, custo_unit, estado, observacoes, visibilidade) VALUES (:destino, :partida, :data_viagem, :num_passageiros, :num_inscritos, :custo_total, :custo_unitario, :estado, :observ, '1')";
+    $sql = "INSERT INTO viagens (destino, partida, data_viagem, num_passageiros, num_inscritos, custo_total, custo_unit, estado, observacoes, visibilidade) 
+        VALUES (:destino, :partida, :data_viagem, :num_passageiros, :num_inscritos, :custo_total, :custo_unitario, :estado, :observ, '1')";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':destino', $destino);
     $stmt->bindParam(':partida', $partida);
@@ -41,75 +27,6 @@
     $stmt->bindParam(':estado', $estado);
     $stmt->bindParam(':observ', $observ);
     $stmt->execute();
-    ?>
-
-    <div class="container mt-4">
-        <form action="addUC-DBUpdate.php" method="POST">
-        <div class="mb-3 row">
-                <label for="destino" class="col-sm-2 col-form-label">Destino</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="destino" name="destino" required value="<?php echo $_POST['destino']; ?>">
-                </div>
-            </div>
-            
-            <div class="mb-3 row">
-                <label for="partida" class="col-sm-2 col-form-label">Partida</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="partida" name="partida" value="Coimbra" required value="<?php echo $_POST['partida']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="data" class="col-sm-2 col-form-label">Data</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" required id="data" name="data" min="2023-01-01" value="<?php echo $_POST['data_viagem']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="num_passageiros" class="col-sm-2 col-form-label">Máximo de Inscritos</label>
-                <div class="col-sm-10">
-                <input type="number" class="form-control" required id="num_passageiros" name="num_passageiros"  value="<?php echo $_POST['num_passageiros']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="num_inscritos" class="col-sm-2 col-form-label">Número de Inscritos</label>
-                <div class="col-sm-10">
-                <input type="number" class="form-control" required id="num_inscritos" name="num_inscritos"  value="<?php echo $_POST['num_inscritos']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="custo_total" class="col-sm-2 col-form-label">Custo Total</label>
-                <div class="col-sm-10">
-                <input type="number" class="form-control" required id="custo_total" name="custo_total" value="<?php echo $_POST['custo_total']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="custo_unit" class="col-sm-2 col-form-label">Custo por pessoa</label>
-                <div class="col-sm-10">
-                <input type="number" class="form-control" required id="custo_unit" name="custo_unit"  value="<?php echo $_POST['custo_unit']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="estado" class="col-sm-2 col-form-label">Estado</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="estado" name="estado" required value="<?php echo $_POST['estado']; ?>">
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <label for="observ" class="col-sm-2 col-form-label">Observações</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="observ" name="observ" required value="<?php echo $_POST['observ']; ?>">
-                </div>
-            </div>
-
-            <div class="col-12">
-                <a href="viagens.php" class="btn btn-primary">voltar</a>
-            </div>
-        </form>
-    </div>
+    
+    header("location:../viagens.php");
+?>

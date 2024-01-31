@@ -50,13 +50,13 @@
                     <div class="mb-3 row">
                         <label for="num_passageiros" class="col-sm-2 col-form-label">Passageiros</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" required id="num_passageiros" name="num_passageiros" placeholder="54" min="0" step="54">
+                            <input type="number" class="form-control" required id="num_passageiros" name="num_passageiros" placeholder="54" min="0">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="custo_total" class="col-sm-2 col-form-label">Custo total</label>
                         <div class="col-sm-2">
-                            <input type="number" class="form-control" required id="custo_total" name="custo_total" placeholder="€" min="0" step="50">
+                            <input type="number" class="form-control" required id="custo_total" name="custo_total" placeholder="€" min="0">
                         </div>
                         <label for="custo_unit" class="col-sm-3 col-form-label">Custo por pessoa</label>
                         <div class="col-sm-2">
