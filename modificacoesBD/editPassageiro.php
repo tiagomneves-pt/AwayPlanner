@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 
     ?>
 
-<div class="container mt-4">
+    <div class="container mt-4">
         <div class="bg-gradient" style="background-color: #37392E;">
             <h4 class="ms-2 p-2" style="color:#f4f3f7;">A editar passageiro: <span style="color: #D0BAA9; font-weight:600;"><?php echo ($passageiro->nome); ?></span></h4>
         </div>
@@ -65,8 +65,9 @@
                 </div>
             </div>
 
-            <div class="col-12">
-                <button class="btn btn-success" type="submit">Inserir</button>
+            <div class="col-6 position-relative start-50">
+                    <button class="btn btn-ap-primary" type="submit">Guardar alterações</button>
+                    <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
             </div>
         </form>
     </div>

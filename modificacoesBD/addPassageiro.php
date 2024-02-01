@@ -18,8 +18,8 @@
     <?php require('../includes/database.php'); ?>
 
     <div class="container mt-4">
-        <div class="mt-2 p-3 text-white bg-dark">
-            Adicionar passageiro à viagem a <?=$_GET['destino'];?> 
+        <div class="bg-gradient" style="background-color: #37392E;">
+            <h3 class="ms-2 p-2" style="color:#f4f3f7;">Adicionar passageiro à viagem a <span style="color: #D0BAA9; font-weight:600;"><?=$_GET['destino'];?></span>
         </div>
     </div>
 
@@ -42,9 +42,10 @@
                 </div>
             </div>
 
-            <div class="col-12">
-                <button class="btn btn-success" type="submit">Inserir</button>
-            </div>
+            <div class="col-6 position-relative start-50">
+                    <button class="btn btn-ap-primary" type="submit">Adicionar</button>
+                    <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
+                </div>
         </form>
     </div>
 

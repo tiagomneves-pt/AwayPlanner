@@ -103,7 +103,7 @@
             </div>
             <div class="row">
                 <div class="col-6 position-relative start-50">
-                    <button class="btn btn-success" type="submit">Guardar alterações</button>
+                    <button class="btn btn-ap-primary" type="submit">Guardar alterações</button>
                     <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
                 </div>
             </div> 

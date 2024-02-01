@@ -30,7 +30,7 @@
                 hsla(24, 5%, 39%, 1) 90%,
                 hsla(0, 0%, 27%, 1) 100%);
             z-index: -1;
-            transition: opacity 1.5s linear;
+            transition: opacity 1s linear;
             opacity: 0;
         }
 
@@ -55,7 +55,7 @@
 <body>
     <?php require('includes/database.php'); ?>
     <?php 
-    $sql_prox_viagem   = 'SELECT id_viagem, destino, data_viagem FROM viagens WHERE data_viagem >= CURRENT_DATE ORDER BY data_viagem LIMIT 1';
+    $sql_prox_viagem   = 'SELECT id_viagem, destino, data_viagem FROM viagens WHERE data_viagem >= CURRENT_DATE AND viagens.visibilidade = 1 ORDER BY data_viagem LIMIT 1';
     $stmt_prox_viagem  = $dbh->prepare($sql_prox_viagem);
     $stmt_prox_viagem->execute();
 

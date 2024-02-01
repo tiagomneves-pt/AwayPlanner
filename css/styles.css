@@ -45,3 +45,29 @@ body{
     color: #8C8C91; 
     opacity: 1;
 }
+
+.btn-ap-primary{
+    background-color: #37392E;
+    color: #f4f3f7;
+}
+
+.btn-ap-primary:hover{
+    transition-duration: 0.3s;
+    transition-property: background-color, color;
+    transition-timing-function: ease-in-out;
+    background-color: #D0BAA9;
+    color:#37392E;
+}
+.btn-voltar{
+    color: #37392E;
+}
+.btn-voltar:hover{
+    transition-duration: 3s;
+    transition-property: color;
+    transition-timing-function: ease-in-out;
+    color:#D0BAA9;
+}
+.form-check-input:checked{
+    background-color: #37392E;
+    border-width: 0px;
+}

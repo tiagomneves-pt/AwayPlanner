@@ -50,29 +50,29 @@
                     <div class="mb-3 row">
                         <label for="num_passageiros" class="col-sm-2 col-form-label">Passageiros</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" required id="num_passageiros" name="num_passageiros" placeholder="54" min="0">
+                            <input type="number" class="form-control" required id="num_passageiros" name="num_passageiros" placeholder="ex.: 54" min="0">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="custo_total" class="col-sm-2 col-form-label">Custo total</label>
                         <div class="col-sm-2">
-                            <input type="number" class="form-control" required id="custo_total" name="custo_total" placeholder="€" min="0">
+                            <input type="number" class="form-control" required id="custo_total" name="custo_total" placeholder="€" min="0" step="0.01">
                         </div>
                         <label for="custo_unit" class="col-sm-3 col-form-label">Custo por pessoa</label>
                         <div class="col-sm-2">
-                            <input type="number" class="form-control" required id="custo_unit" name="custo_unit"  placeholder="€" min="0">
+                            <input type="number" class="form-control" required id="custo_unit" name="custo_unit"  placeholder="€" min="0" step="0.01">
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-sm-6">
                     <div class="mb-3 row">
-                        <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                        <label for="opcoesEstado" class="col-sm-2 col-form-label">Estado</label>
                         <div class="col-sm-3">
                             <div class="dropdown">
                                 <select class="form-select" id="opcoesEstado" name="opcoesEstado">
-                                    <option value="agendada">Agendada</option>
-                                    <option value="confirmada">Confirmada</option>
+                                    <option value="Agendada">Agendada</option>
+                                    <option value="Confirmada">Confirmada</option>
                                 </select>
                             </div>
                         </div>
@@ -89,7 +89,8 @@
             </div>
             <div class="row">
                 <div class="col-6 position-relative start-50">
-                        <button class="btn btn-success" type="submit">Adicionar</button>
+                        <button class="btn btn-ap-primary" type="submit">Adicionar</button>
+                        <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
                 </div>
             </div>            
         </form>
